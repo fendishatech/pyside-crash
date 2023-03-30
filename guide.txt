@@ -1,0 +1,134 @@
+WIDGETS
+    - Qlabel
+    - QPushButton
+    - QLineEdit
+    - QComboBox
+    - QCheckBox
+    - QRadioButton
+    - QSlider
+    - QTableWidget
+    - QTextEdit
+    - QSpinBox
+    - QDoubleSpinBox
+    - QDateEdit
+    - QTimeEdit
+    - QDateTimeEdit
+    - QFileDialogue
+    - QMenuBar
+    - QToolBar
+    - QStatusBar
+    - QDockWidget
+
+
+SIGNALS AND SLOTS
+    import sys
+    from PySide2.QtWidgets import QApplication, QPushButton, QMessageBox
+
+    def show_message_box():
+        msg_box = QMessageBox()
+        msg_box.setText("Hello, World!")
+        msg_box.exec_()
+
+    if __name__ == "__main__":
+        app = QApplication(sys.argv)
+
+        button = QPushButton("Click me!")
+        button.clicked.connect(show_message_box)
+
+        button.show()
+
+        sys.exit(app.exec_())
+
+LAYOUTS
+    - QVBoxLayout
+    - QHBoxLayout
+    - QGridLayout
+    - QFormLayout
+    - QStackedLayout
+    - QSplitterLayout
+    - QScrollArea
+    - QTabWidget
+    - QGroupBox
+
+
+STYLESHEET
+    import sys
+    from PySide2.QtWidgets import QApplication, QPushButton
+
+    if __name__ == "__main__":
+        app = QApplication(sys.argv)
+
+        button = QPushButton("Click me!")
+        button.setStyleSheet("background-color: red; color: white;")
+
+        button.show()
+
+        sys.exit(app.exec_())
+
+        EXTERNAL CSS
+
+        import sys
+        from PySide2.QtWidgets import QApplication, QPushButton
+        from PySide2.QtCore import QFile, QTextStream
+
+        if __name__ == "__main__":
+            app = QApplication(sys.argv)
+
+            button = QPushButton("Click me!")
+
+            # Load the external CSS file
+            css_file = QFile("style.css")
+            css_file.open(QFile.ReadOnly | QFile.Text)
+            stream = QTextStream(css_file)
+            stylesheet = stream.readAll()
+
+            # Apply the stylesheet to the button
+            button.setStyleSheet(stylesheet)
+
+            button.show()
+
+            sys.exit(app.exec_())
+
+            QPushButton {
+                background-color: red;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            QPushButton:hover {
+                background-color: darkred;
+            }
+
+DIALOGUES
+
+QtSQL
+    import sys
+    from PySide2.QtWidgets import QApplication
+    from PySide2.QtSql import QSqlDatabase, QSqlQuery
+
+    if __name__ == "__main__":
+        app = QApplication(sys.argv)
+
+        # Connect to the database
+        db = QSqlDatabase.addDatabase("QSQLITE")
+        db.setDatabaseName("mydatabase.db")
+        if not db.open():
+            print("Failed to connect to database")
+            sys.exit(1)
+
+        # Execute a query
+        query = QSqlQuery()
+        query.exec_("SELECT * FROM mytable")
+        while query.next():
+            name = query.value(0)
+            age = query.value(1)
+            print(f"Name: {name}, Age: {age}")
+
+        sys.exit(app.exec_())
+
+MODEL-VIEW-CONTROLLER
+
+
+INTERNATIONALIZATION
