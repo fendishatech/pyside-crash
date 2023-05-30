@@ -1,5 +1,4 @@
 import sys
-import PySide6.QtCore
 from PySide6.QtWidgets import QApplication,QWidget
 from PySide6.QtGui import QScreen
 
