@@ -1,16 +1,15 @@
 import sys
-import PySide6.QtCore
-from PySide6.QtWidgets import QApplication,QWidget,QPushButton
+from PySide6.QtWidgets import QApplication,QWidget
 
 
-class ButtonExample(QWidget):
+class OOPSkeleton(QWidget):
     def __init__(self) -> None:
         super().__init__()
 
         self.initGUI()
 
     def initGUI(self):
-        self.setWindowTitle("Button Example")
+        self.setWindowTitle("OOP Skeleton")
         self.resize(400, 325)
 
 
@@ -18,7 +17,7 @@ def main():
     try:
         app = QApplication()
 
-        button_eg = ButtonExample()
+        button_eg = OOPSkeleton()
         button_eg.show()
 
         sys.exit(app.exec())
