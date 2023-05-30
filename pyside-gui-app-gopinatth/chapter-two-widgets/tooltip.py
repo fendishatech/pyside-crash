@@ -1,11 +1,13 @@
 import sys
 from typing import Optional
-from PySide6.QtWidgets import QApplication,QWidget,QLabel
-from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QApplication,QWidget,QLabel, QToolTip
+from PySide6.QtGui import QIcon, QFont
 
 class AppIconExample(QWidget):
     def __init__(self) -> None:
         super().__init__()
+
+        QToolTip.setFont(QFont("Decorative", 8, QFont.Bold))
 
         self.initGUI()
     
@@ -23,12 +25,14 @@ class AppIconExample(QWidget):
         active_on_icon_label = QLabel("Active and On",self)
         active_on_icon_pixamp = active_on_icon.pixmap(50, 50, QIcon.Active, QIcon.On)
         active_on_icon_label.setPixmap(active_on_icon_pixamp )
+        active_on_icon_label.setToolTip("active and on icon")
         active_on_icon_label.show()
 
         disabled_off_icon = QIcon("pyside_logo.png")
         disabled_off_icon_label = QLabel("Disables and Off",self)
         disabled_off_icon_pixamp = disabled_off_icon.pixmap(50, 50, QIcon.Disabled, QIcon.Off)
-        disabled_off_icon_label.setPixmap(disabled_off_icon_pixamp )
+        disabled_off_icon_label.setPixmap(disabled_off_icon_pixamp)
+        disabled_off_icon_label.setToolTip("disabled and off icon")
         disabled_off_icon_label.move(60, 0)
         disabled_off_icon_label.show()
 
@@ -36,6 +40,7 @@ class AppIconExample(QWidget):
         selected_on_icon_label = QLabel("sample",self)
         selected_on_icon_pixamp = selected_on_icon.pixmap(50, 50, QIcon.Selected, QIcon.On)
         selected_on_icon_label.setPixmap(selected_on_icon_pixamp )
+        selected_on_icon_label.setToolTip("selected and on icon")
         selected_on_icon_label.move(120, 0)
         selected_on_icon_label.show()
 
