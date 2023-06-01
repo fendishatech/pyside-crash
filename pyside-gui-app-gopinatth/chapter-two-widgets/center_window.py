@@ -34,8 +34,8 @@ def main():
     try:
         app = QApplication()
 
-        button_eg = CenterWindow()
-        button_eg.show()
+        centering_window = CenterWindow()
+        centering_window.show()
 
         sys.exit(app.exec())
     except NameError as name_error:

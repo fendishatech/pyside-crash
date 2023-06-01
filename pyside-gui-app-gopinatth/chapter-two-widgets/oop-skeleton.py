@@ -17,8 +17,8 @@ def main():
     try:
         app = QApplication()
 
-        button_eg = OOPSkeleton()
-        button_eg.show()
+        oop_skeleton = OOPSkeleton()
+        oop_skeleton.show()
 
         sys.exit(app.exec())
     except NameError as name_error:

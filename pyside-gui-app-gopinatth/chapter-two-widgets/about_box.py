@@ -35,8 +35,8 @@ def main():
     try:
         app = QApplication()
 
-        button_eg = ButtonExample(app)
-        button_eg.show()
+        about_window = ButtonExample(app)
+        about_window.show()
 
         sys.exit(app.exec())
     except NameError as name_error:

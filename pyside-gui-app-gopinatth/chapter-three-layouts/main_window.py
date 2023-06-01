@@ -1,24 +1,27 @@
-import sys
-from PySide6.QtWidgets import QApplication,QWidget,QPushButton
+import sys, time
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget
 
 
-class ButtonExample(QWidget):
+class MainWindow(QMainWindow):
     def __init__(self) -> None:
+        """
+        Constructor.
+        """
         super().__init__()
 
         self.initGUI()
 
     def initGUI(self):
-        self.setWindowTitle("Button Example")
-        self.resize(400, 325)
+        self.setWindowTitle("Main Window")
+        self.setGeometry(300,250,400,300)
 
 
 def main():
     try:
         app = QApplication()
 
-        window_style = ButtonExample()
-        window_style.show()
+        main_window = MainWindow()
+        main_window.show()
 
         sys.exit(app.exec())
     except NameError as name_error:
